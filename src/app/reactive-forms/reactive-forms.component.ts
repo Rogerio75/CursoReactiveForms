@@ -7,15 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit {
-public cadastroForm: FormGroup = this.formBuilder.group({
+  public cadastroForm: FormGroup = this.formBuilder.group({
 firstName:['', Validators.required ],
-lastName: ['', [Validators.required, Validators.minLength(4),
-],
+lastName: ['', [Validators.required, Validators.minLength(4),]],
+email: ['', [Validators.required, Validators.email]]
 
-
-]
-
-})
+});
 
 
 

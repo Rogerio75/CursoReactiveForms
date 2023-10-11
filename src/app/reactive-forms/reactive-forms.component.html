@@ -16,18 +16,30 @@
   Sobrenome:
  <input type="text"  formControlName="lastName" >
 <span class="span" *ngIf="cadastroForm.get ('lastName')?.errors && (cadastroForm.get ('lastName')?.touched || cadastroForm.get ('lastName')?.dirty )" >
- no minimo  5 caracteres {{ cadastroForm.get ('lastName')?.errors}}
-
+ no minimo  5 caracteres {{ cadastroForm.get ('lastName')?.errors?.['minlength']?.requiredLength}}
+ e você já digitou {{ cadastroForm.get ('lastName')?.errors?.['minlength']?.actualLength}}
 </span>
 </label>
 
+<br>
+<br>
+<label >
+  Email:
+  <input type="email"  formControlName="email" >
+ </label>
+
 <p>{{ cadastroForm.get ('lastName')?.errors | json }}</p>
+{{ cadastroForm.get ('email')?.dirty | json }}
 <br>
 
  <button [disabled]="cadastroForm.invalid" >Enviar </button>
 
 
+
   <!--{{ cadastroForm.get ('firstName')?.errors | json }}
     {{ cadastroForm.get ('firstName')?.touched | json }}
     {{ cadastroForm.get ('firstName')?.dirty | json }}-->
-</form>
+
+
+
+  </form>
