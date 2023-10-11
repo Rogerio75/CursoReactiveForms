@@ -3,8 +3,10 @@
   <label>
     Nome:
   <input type="text"  formControlName="firstName">
-  <span *ngIf="cadastroForm.get ('firstName')?.errors && (cadastroForm.get ('firstName')?.touched || cadastroForm.get ('firstName')?.dirty )" >
-   Favor add  nome
+  <span  class="alert" *ngIf="cadastroForm.get ('firstName')?.errors && (cadastroForm.get ('firstName')?.touched || cadastroForm.get ('firstName')?.dirty )" >
+
+
+    Favor add  nome
   </span>
   </label>
  <br>
@@ -12,18 +14,20 @@
 
  <label >
   Sobrenome:
- <input type="text"  formControlName="lastName">
- </label>
+ <input type="text"  formControlName="lastName" >
+<span class="span" *ngIf="cadastroForm.get ('lastName')?.errors && (cadastroForm.get ('lastName')?.touched || cadastroForm.get ('lastName')?.dirty )" >
+ no minimo  5 caracteres {{ cadastroForm.get ('lastName')?.errors}}
+
+</span>
+</label>
+
+<p>{{ cadastroForm.get ('lastName')?.errors | json }}</p>
+<br>
+
+ <button [disabled]="cadastroForm.invalid" >Enviar </button>
 
 
-<p> {{ cadastroForm.get ('firstName')?.errors | json }}
+  <!--{{ cadastroForm.get ('firstName')?.errors | json }}
     {{ cadastroForm.get ('firstName')?.touched | json }}
-    {{ cadastroForm.get ('firstName')?.dirty | json }}
-
-
-</p>
-
- <button  >Enviar </button>
-
-
+    {{ cadastroForm.get ('firstName')?.dirty | json }}-->
 </form>
